@@ -1,3 +1,3 @@
 # Herramienta de testing
 
-Esta herramienta pretende hacer testing a Habvítica y Car Report
+Esta herramienta pretende hacer testing a Habítica y Car Report
