@@ -54,6 +54,8 @@ export class HttpService {
   }
 
   postJSON(url, data): Observable<HttpResponse<string>> {
+    console.log("data enviada: ", data);
+    
     return this.http.post<string>(url, data,
       {
         headers: this.getHeaders('application/json', 'post'),

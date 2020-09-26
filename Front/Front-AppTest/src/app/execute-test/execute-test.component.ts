@@ -30,10 +30,19 @@ export class ExecuteTestComponent implements OnInit {
 
   executeTest() {
     console.log(this.applicationSelect);
-    this.httpService.sendSQS();
+    // this.httpService.sendSQS();
     // this.httpService.sendTestMessage();
-    console.log("ojo",this.httpService.getTest());
-    this.httpService.getTest().subscribe(data => {
+    // console.log("ojo",this.httpService.getTest());
+    // this.httpService.getTest().subscribe(data => {
+    //   console.log('data', data);
+    // });
+    this.httpService.postJSON("https://87yt1rgrp4.execute-api.us-east-1.amazonaws.com/UnderTestingApp",`{
+      "body": {
+        "name": "Habitica mobile",
+        "description": "Habitica es una aplicación de seguimiento a tareas…app de productividad por medio de juego de roles.",
+        "version": "2.4.2"
+      }
+    }`).subscribe(data => {
       console.log('data', data);
     });
   }
