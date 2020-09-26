@@ -10,7 +10,7 @@
             <label for="exampleFormControlSelect1">Aplicación</label>
             <select class="form-control" id="exampleFormControlSelect1"
               (change)="selectAplication($event.target.value)">
-              <option [value]="null" disabled>Seleccione aplicación</option>
+              <option [ngValue]="null" selected disabled>Seleccione aplicación</option>
               <option *ngFor="let application of applications" [ngValue]="application">
                 {{ application.name }}
               </option>
