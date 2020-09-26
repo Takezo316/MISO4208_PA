@@ -32,7 +32,10 @@ export class ExecuteTestComponent implements OnInit {
     console.log(this.applicationSelect);
     this.httpService.sendSQS();
     // this.httpService.sendTestMessage();
-    
+    console.log("ojo",this.httpService.getTest());
+    this.httpService.getTest().subscribe(data => {
+      console.log('data', data);
+    });
   }
 
 }

@@ -23,7 +23,7 @@
     "bootstrap": "^4.5.2",
     "electron-json-storage": "^4.2.0",
     "path": "^0.12.7",
-    "rxjs": "~6.6.0",
+    "rxjs": "^6.6.3",
     "stream": "0.0.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
