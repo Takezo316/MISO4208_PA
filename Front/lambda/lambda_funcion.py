@@ -4,7 +4,7 @@ import boto3
 
 def lambda_handler(event, context):
     # TODO implement
-    
+    # body = json.loads(event['body'])
     
     
     
@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     sqs = boto3.client('sqs')
 
     queue_url = 'https://sqs.us-east-1.amazonaws.com/142135781414/SQS_Pruebas'
-
+    
     # Send message to SQS queue
     response = sqs.send_message(
         QueueUrl=queue_url,
@@ -27,7 +27,7 @@ def lambda_handler(event, context):
                 'StringValue': 'Eduard Duarte S'
             }
         },
-        MessageBody=(event['key1'])
+        MessageBody=(json.dumps(event['body']))
     )
 
     print(response['MessageId'])
