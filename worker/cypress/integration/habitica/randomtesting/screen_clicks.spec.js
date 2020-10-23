@@ -9,9 +9,10 @@ describe('Random Testing', () => {
     })
 
     it('Random clicks a la pantalla', () => {
+        cy.wait(2000)
         let clicks = 20
         for (let i = 0; i < clicks; i++) {
-            cy.get('body').click(getRandomInt(0, 800), getRandomInt(0, 800))
+            cy.get('.container-fluid').click(getRandomInt(0, 800), getRandomInt(0, 800))
             cy.wait(500)
         }
     })

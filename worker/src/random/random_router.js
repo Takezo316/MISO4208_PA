@@ -25,20 +25,20 @@ let runTest = (request, response, filename) => {
         });
 }
 
-router.post("/usuarios/login", (req, res) => {
-    runTest(req, res, "cypress/integration/habitica/e2e/usuarios/login.spec.js")
+router.post("/screen", (req, res) => {
+    runTest(req, res, "cypress/integration/habitica/randomtesting/screen_clicks.spec.js")
 });
 
-router.post("/usuarios/logout", (req, res) => {
-    runTest(req, res, "cypress/integration/habitica/e2e/usuarios/logout.spec.js")
+router.post("/link", (req, res) => {
+    runTest(req, res, "cypress/integration/habitica/randomtesting/links_click.spec.js")
 });
 
-router.post("/usuarios/registro", (req, res) => {
-    runTest(req, res, "cypress/integration/habitica/e2e/usuarios/registro.spec.js")
+router.post("/input", (req, res) => {
+    runTest(req, res, "cypress/integration/habitica/randomtesting/input_text.spec.js")
 });
 
-router.post("/tareas/crear", (req, res) => {
-    runTest(req, res, "cypress/integration/habitica/e2e/tareas/crear_tareas.spec.js")
+router.post("/button", (req, res) => {
+    runTest(req, res, "cypress/integration/habitica/randomtesting/button_clicks.spec.js")
 });
 
 module.exports = router
