@@ -8,12 +8,12 @@ describe('Visual Regresion Testing', () => {
         cy.get('button[type="submit"]').click()
     })
 
-    it('Menu Lista de Deseos', () => {
+    it('Menu pendiente programado', () => {
         cy.wait(2000)
-        cy.screenshot('deseos_1')
-        cy.get('.filter.small-text').contains('Lista de Deseos').click()
+        cy.screenshot('programado_1')
+        cy.get('.filter.small-text').contains('Programado').click()
         cy.wait(1000)
-        cy.screenshot('deseos_2')
+        cy.screenshot('programado_2')
     })
 
 })

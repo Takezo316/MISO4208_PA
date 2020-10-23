@@ -8,9 +8,12 @@ describe('Visual Regresion Testing', () => {
         cy.get('button[type="submit"]').click()
     })
 
-    it('Vista de hábitos fuertes vs débiles', () => {
-        cy.get('#generate_palette').click()
-        cy.screenshot('imagen2')
+    it('Menu diaria vence', () => {
+        cy.wait(2000)
+        cy.screenshot('vence_1')
+        cy.get('.filter.small-text').contains('No vencen hoy').click()
+        cy.wait(1000)
+        cy.screenshot('vence_2')
     })
 
 })
