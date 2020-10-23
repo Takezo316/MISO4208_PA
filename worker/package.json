@@ -12,6 +12,7 @@
   "dependencies": {
     "aws-sdk": "^2.761.0",
     "cypress": "^5.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "resemblejs": "^3.2.5"
   }
 }

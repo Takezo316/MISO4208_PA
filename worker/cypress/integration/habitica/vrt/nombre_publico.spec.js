@@ -9,8 +9,26 @@ describe('Visual Regresion Testing', () => {
     })
 
     it('Editar nombre público', () => {
-        cy.get('#generate_palette').click()
-        cy.screenshot('imagen1')
+        cy.wait(2000)
+        cy.screenshot('nombre_1', {capture: 'viewport'})
+        cy.get('.avatar').click()
+        cy.get('button').contains('Editar').click({force: true})
+        let placeholder = cy.get('input[placeholder="Nombre completo"]')
+        placeholder.clear()
+        placeholder.type('plutarchia_changed')
+        cy.get('button').contains('Guardar').click({force: true})
+        cy.get('body').click('topLeft')
+        cy.wait(1000)
+        cy.screenshot('nombre_2', {capture: 'viewport'})
+    })
+
+    after(() => {
+        cy.get('.avatar').click()
+        cy.get('button').contains('Editar').click({force: true})
+        let placeholder = cy.get('input[placeholder="Nombre completo"]')
+        placeholder.clear()
+        placeholder.type('plutarchia')
+        cy.get('button').contains('Guardar').click({force: true})
     })
 
 })
