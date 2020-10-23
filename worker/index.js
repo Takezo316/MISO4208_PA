@@ -9,9 +9,9 @@ const path = require('path')
 const fs = require('fs')
 
 const s3 = new AWS.S3({
-    region: 'HERE',
-    accessKeyId: 'HERE',
-    secretAccessKey: 'HERE',
+    region: '',
+    accessKeyId: '',
+    secretAccessKey: '',
 });
 
 const bucket = 'habiticamiso'
@@ -42,10 +42,61 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.post("/test/login", (req, res) => {
+app.post("/usuarios/login", (req, res) => {
     cypress
         .run({
             spec: "cypress/integration/habitica/usuarios/login.spec.js",
+        })
+        .then((results) => {
+            console.log(results);
+            console.log("Fin de los resultados");
+            uploadToS3(results.runs[0].video)
+            res.status(200).send("Subiendo resultados a S3")
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error en el test")
+        });
+});
+
+app.post("/usuarios/logout", (req, res) => {
+    cypress
+        .run({
+            spec: "cypress/integration/habitica/usuarios/logout.spec.js",
+        })
+        .then((results) => {
+            console.log(results);
+            console.log("Fin de los resultados");
+            uploadToS3(results.runs[0].video)
+            res.status(200).send("Subiendo resultados a S3")
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error en el test")
+        });
+});
+
+app.post("/usuarios/registro", (req, res) => {
+    cypress
+        .run({
+            spec: "cypress/integration/habitica/usuarios/registro.spec.js",
+        })
+        .then((results) => {
+            console.log(results);
+            console.log("Fin de los resultados");
+            uploadToS3(results.runs[0].video)
+            res.status(200).send("Subiendo resultados a S3")
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error en el test")
+        });
+});
+
+app.post("/tareas/crear", (req, res) => {
+    cypress
+        .run({
+            spec: "cypress/integration/habitica/tareas/crear_tareas.spec.js",
         })
         .then((results) => {
             console.log(results);
