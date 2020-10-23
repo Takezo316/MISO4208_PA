@@ -2,114 +2,18 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-const cypress = require("cypress");
-const AWS = require("aws-sdk");
+const e2e_router = require('./e2e/e2e_router')
 
-const path = require('path')
-const fs = require('fs')
-
-const s3 = new AWS.S3({
-    region: '',
-    accessKeyId: '',
-    secretAccessKey: '',
-});
-
-const bucket = 'habiticamiso'
-
-let uploadToS3 = (videoPath) => { 
-    let fileStream = fs.createReadStream(videoPath)
-    fileStream.on('error', function (err) {
-        console.log('File Error', err);
-    })
-
-    let params = {
-        Bucket: bucket,
-        Key: path.relative('.', videoPath),
-        Body: fileStream
-    }
-
-    s3.upload(params, function (err, data) {
-        if (err) {
-            console.log("Unable to upload to S3")
-            console.log(err)
-        }else
-            console.log("Upload Success", data.Location)
-    })
-
-}
+app.use('/e2e', e2e_router)
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+    res.send("Worker for E2E, Random, VRT, DataGen")
+})
 
-app.post("/usuarios/login", (req, res) => {
-    cypress
-        .run({
-            spec: "cypress/integration/habitica/usuarios/login.spec.js",
-        })
-        .then((results) => {
-            console.log(results);
-            console.log("Fin de los resultados");
-            uploadToS3(results.runs[0].video)
-            res.status(200).send("Subiendo resultados a S3")
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).send("Error en el test")
-        });
-});
-
-app.post("/usuarios/logout", (req, res) => {
-    cypress
-        .run({
-            spec: "cypress/integration/habitica/usuarios/logout.spec.js",
-        })
-        .then((results) => {
-            console.log(results);
-            console.log("Fin de los resultados");
-            uploadToS3(results.runs[0].video)
-            res.status(200).send("Subiendo resultados a S3")
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).send("Error en el test")
-        });
-});
-
-app.post("/usuarios/registro", (req, res) => {
-    cypress
-        .run({
-            spec: "cypress/integration/habitica/usuarios/registro.spec.js",
-        })
-        .then((results) => {
-            console.log(results);
-            console.log("Fin de los resultados");
-            uploadToS3(results.runs[0].video)
-            res.status(200).send("Subiendo resultados a S3")
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).send("Error en el test")
-        });
-});
-
-app.post("/tareas/crear", (req, res) => {
-    cypress
-        .run({
-            spec: "cypress/integration/habitica/tareas/crear_tareas.spec.js",
-        })
-        .then((results) => {
-            console.log(results);
-            console.log("Fin de los resultados");
-            uploadToS3(results.runs[0].video)
-            res.status(200).send("Subiendo resultados a S3")
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).send("Error en el test")
-        });
-});
+app.get("/healtcheck", (req, res) => {
+    res.sendStatus(200)
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
-});
+})

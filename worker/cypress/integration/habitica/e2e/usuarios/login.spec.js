@@ -9,7 +9,6 @@ describe('Login', () => {
         cy.get('#usernameInput').type('plutarchia')
         cy.get('#passwordInput').type('password123')
         cy.get('button[type="submit"]').click()
-        
     })
 
     it('Login falla por clave incorrecta', () => {
