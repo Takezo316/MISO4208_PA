@@ -1,0 +1,15 @@
+<div style="background-color: white; margin: 1% 15% 0% 15%;"> 
+    <h4 style="text-align:center"> Viajes Zonas internas y Entre Zonas 
+      <br /><br />
+  
+    </h4><br />
+    <div>
+      <div style="display: block">
+        <canvas baseChart [datasets]="barChartData" [labels]="mbarChartLabels" [options]="barChartOptions"
+          [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      </div>
+  
+  
+    </div>
+  </div>
