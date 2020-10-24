@@ -7,6 +7,8 @@ import { AppRoutingModule } from '../modules/app-routing/app-routing.module';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { GraphsComponent } from "../components/graphs/graphs.component";
 import { PruebasComponent } from "../components/pruebas/pruebas.component";
+import { VideoComponent } from "../components/video/video.component";
+
 
 import { BarChartComponent } from "../components/graphs/barchart/barchart";
 import { BarStackComponent } from "../components/graphs/barchart/barStack.component";
@@ -33,6 +35,7 @@ import { BordereauActionsRenderer } from '../components/base/ag-grid-base/ag-gri
 
 @NgModule({
     declarations: [
+        VideoComponent,
         BarStackComponent,
         PruebasComponent,
         ScatterGraphComponent,
