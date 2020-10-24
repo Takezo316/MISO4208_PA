@@ -4,8 +4,8 @@
         <div style="height:800px" *ngIf="selectedTabIndex == 0">
             <div class="tower-grid">
 
-                <div style="background-color: white"> 
-                
+                <div style="background-color: white">
+
                     <h1>End to End</h1>
 
                 </div>
@@ -19,42 +19,125 @@
             <div class="tower-grid">
 
 
-                <div  style="background-color: white"> 
+                <div style="background-color: white">
                     <br>
                     <br>
-                <div  style="margin: 0% 0% 0% 15%"> 
+                    <div style="margin: 0% 0% 0% 15%">
 
-                    <h2>End to End</h2>
-                    <div class="example-container">
-                        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
-                        
-                          
-                          <mat-form-field appearance="fill"
-                              [hideRequiredMarker]="hideRequiredControl.value"
-                              [floatLabel]="floatLabelControl.value"
-                              >
-                            <mat-select required formControlName="e2eprueba">
-                              <mat-option>-- None --</mat-option>
-                              <mat-option value="users">Usuarios</mat-option>
-                              <mat-option value="task">Tareas</mat-option>
-                            </mat-select>
-                            <mat-label><mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i></mat-label>
-                          </mat-form-field>
-                          <button type="submit" mat-stroked-button >lanzar e2e Test</button>
-                        </form>
-                      </div>
-                </div>
+                        <h2>End to End</h2>
+                        <div class="example-container">
+                            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="users">Usuarios</mat-option>
+                                        <mat-option value="task">Tareas</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <button type="submit" mat-stroked-button>lanzar e2e Test</button>
+                            </form>
+                        </div>
+                    </div>
 
                 </div>
 
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="--">
+    <mat-tab label="ver">
         <div style="height:800px" *ngIf="selectedTabIndex == 2">
-            <div class="tower-grid">
+            <div class="tower-grid" style="margin: 2% 0% 0% 15%;">
 
-                <barStack></barStack>
+                <app-video></app-video>
+
+
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="VRT">
+        <div style="height:800px" *ngIf="selectedTabIndex == 3">
+            <div class="tower-grid" style="margin: 0% 0% 0% 0%;">
+
+                <div style="background-color: white">
+                    <br>
+                    <br>
+                    <div style="margin: 0% 0% 0% 15%">
+
+                        <h2>VTR</h2>
+                        <div class="example-container">
+                            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="nombrepublico">Nombre Publico</mat-option>
+                                        <mat-option value="debil">Debil</mat-option>
+                                        <mat-option value="fuerte">Fuerte</mat-option>
+                                        <mat-option value="deseos">Deseos</mat-option>
+                                        <mat-option value="personalizado">Personalizado</mat-option>
+                                        <mat-option value="programado">Programado</mat-option>
+                                        <mat-option value="vence">Vence</mat-option>
+
+
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <button type="submit" mat-stroked-button>lanzar VRT Test</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="DataGen">
+        <div style="height:800px" *ngIf="selectedTabIndex == 4">
+            <div class="tower-grid" style="margin: 0% 0% 0% 0%;">
+
+                <div style="background-color: white">
+                    <br>
+                    <br>
+                    <div style="margin: 0% 0% 0% 15%">
+
+                        <h2>Generación de datos</h2>
+                        <div class="example-container">
+                            <form [formGroup]="formGroup" (ngSubmit)="onSubmitD(formGroup.value)">
+
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="habitos">Habitos</mat-option>
+                                        <mat-option value="diarias">Tareas diarias</mat-option>
+                                        <mat-option value="pendientes">Tareas pendientes</mat-option>
+                                        <mat-option value="recompensas">Recompensas</mat-option>
+                                        
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <button type="submit" mat-stroked-button>lanzar Test</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>

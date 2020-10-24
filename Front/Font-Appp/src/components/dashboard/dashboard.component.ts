@@ -3,6 +3,7 @@ import { MockData } from '../../constants/mock-data';
 import { MatDialog } from '@angular/material/dialog';
 import { DashboardService } from './dashboard.service';
 import { BaseHttpService } from "../../services/BaseHttpService";
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -23,18 +24,29 @@ export class DashboardComponent implements OnInit {
         disableClose: true
     };
 
+    username: string;
+    
     constructor(
+        private route: ActivatedRoute,
         public _httpService: BaseHttpService, public dialog: MatDialog,
         public dashboardService: DashboardService
     ) { }
 
     ngOnInit() {
-        this.getWfGridData();
-        this._httpService.getData('http://mine4102-5.virtual.uniandes.edu.co:5000/get/ra1_b')
-            .subscribe(dataNy => {
-                console.log('data', dataNy);
-                this.bxViewrowData = dataNy;
-            });
+        // this.getWfGridData();
+        // this._httpService.getData('http://mine4102-5.virtual.uniandes.edu.co:5000/get/ra1_b')
+        //     .subscribe(dataNy => {
+        //         console.log('data', dataNy);
+        //         this.bxViewrowData = dataNy;
+        //     });
+        // snapshot way
+        console.log('thing', this.route.snapshot.params.username);
+
+        // observable way
+        this.route.paramMap.subscribe(params => {
+            console.log(params.get('username'));
+            this.username = params.get('username');
+        });
     }
 
     onAddTowerClick($event: any) {
@@ -59,7 +71,7 @@ export class DashboardComponent implements OnInit {
                 // this.bxViewrowData = dataNy;
                 this.workFlowViewrowData = dataNy;
             });
-            
+
         this.workFlowViewcolumnDefs = colDef;
         // this.workFlowViewrowData = MockData.agGridRowData_WF;
     }

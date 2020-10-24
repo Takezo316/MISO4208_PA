@@ -1,6 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs/Observable';
+// import { map, tap, mergeMap, catchError } from 'rxjs/Operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -79,7 +81,10 @@ export class BaseHttpService {
 
     add(model, url: string): Observable<any> {
         const headers = new HttpHeaders({
-            'Content-Type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json; charset=utf-8',
+            // 'Access-Control-Allow-Headers': 'Content-Type',
+            // 'Access-Control-Allow-Origin': '*',
+            // 'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
         });
         const options = { headers: headers };
         const body = JSON.stringify(model);

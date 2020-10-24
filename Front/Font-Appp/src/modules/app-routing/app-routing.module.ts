@@ -14,19 +14,21 @@ import { PruebasComponent } from '../../components/pruebas/pruebas.component'
 const routes: Routes = [
     { path: 'bordereau', component: BordereauComponent, canActivate: [AppMasterGuard] },
     { path: 'login', component: LoginComponent, canActivate: [AppMasterGuard] },
-    { path: 'dashboard', component: DashboardComponent, canActivate: [AppMasterGuard] },
+    {
+        path: 'dashboard/:username', component: DashboardComponent, canActivate: [AppMasterGuard]
+    },
     { path: 'name-matching', component: NameMatchingComponent, canActivate: [AppMasterGuard] },
     { path: 'graphs', component: GraphsComponent, canActivate: [AppMasterGuard] },
     { path: 'pruebas', component: PruebasComponent, canActivate: [AppMasterGuard] },
 
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: '/pruebas',
         pathMatch: 'full'
     },
     {
         path: '**',
-        redirectTo: '/dashboard'
+        redirectTo: '/pruebas'
     }
 ];
 
@@ -34,4 +36,4 @@ const routes: Routes = [
     imports: [CommonModule, RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
