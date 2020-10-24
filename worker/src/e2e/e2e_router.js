@@ -22,23 +22,23 @@ let runTest = (request, response, filename) => {
         .catch((err) => {
             console.error(err);
             response.status(500).send("Error en el test")
-        });
+        })
 }
 
 router.post("/usuarios/login", (req, res) => {
     runTest(req, res, "cypress/integration/habitica/e2e/usuarios/login.spec.js")
-});
+})
 
 router.post("/usuarios/logout", (req, res) => {
     runTest(req, res, "cypress/integration/habitica/e2e/usuarios/logout.spec.js")
-});
+})
 
 router.post("/usuarios/registro", (req, res) => {
     runTest(req, res, "cypress/integration/habitica/e2e/usuarios/registro.spec.js")
-});
+})
 
 router.post("/tareas/crear", (req, res) => {
     runTest(req, res, "cypress/integration/habitica/e2e/tareas/crear_tareas.spec.js")
-});
+})
 
 module.exports = router
