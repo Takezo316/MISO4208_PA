@@ -2,12 +2,16 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
+const cors = require('cors')
+
 const path = require('path')
 
 const e2e_router = require('./e2e/e2e_router')
 const random_router = require('./random/random_router')
 const vrt_router = require('./vrt/vrt_router')
 const datagen_router = require('./datagen/datagen_router')
+
+app.use(cors())
 
 app.use('/public', express.static(path.join(__dirname, "../public")));
 
