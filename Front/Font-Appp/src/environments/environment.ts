@@ -6,5 +6,5 @@
 export const environment = {
     production: false,
     appRoot: 'http://localhost:60123/',
-    host: 'http://54.235.1.225:8080'
+    host: 'http://ec2-3-208-1-140.compute-1.amazonaws.com:8080'
 };
