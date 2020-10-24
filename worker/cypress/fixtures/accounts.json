@@ -8,5 +8,10 @@
         "username": "plutarchia", 
         "email": "plutarchia@taikz.com",
         "password": "password123"
+    },
+    {
+        "username": "misgotten",
+        "email": "misgotten@teknopena.com",
+        "password": "password123"
     }
 ]

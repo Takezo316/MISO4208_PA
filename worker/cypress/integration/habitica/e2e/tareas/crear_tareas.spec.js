@@ -12,8 +12,8 @@ describe('Crear Tarea', () => {
         cy.get('.create-btn').click()
         cy.get('.create-task-btn').eq(0).click()
 
-        cy.get('input[placeholder="Add a title"]').type('Hábito 1')
-        cy.get('textarea[placeholder="Add notes"]').type('Nota 1')
+        cy.get('.task-modal-header input').type('Hábito 1')
+        cy.get('.task-modal-header textarea').type('Nota 1')
         cy.contains('Crear').first().click()
 
         cy.get('.habit').contains('Hábito 1').should('be.visible')
@@ -23,8 +23,8 @@ describe('Crear Tarea', () => {
         cy.get('.create-btn').click()
         cy.get('.create-task-btn').eq(1).click()
 
-        cy.get('input[placeholder="Add a title"]').type('Diario 2')
-        cy.get('textarea[placeholder="Add notes"]').type('Nota 2')
+        cy.get('.task-modal-header input').eq(0).type('Diario 2')
+        cy.get('.task-modal-header textarea').type('Nota 2')
         cy.contains('Crear').first().click()
 
         cy.get('.daily').contains('Diario 2').should('be.visible')
@@ -34,8 +34,8 @@ describe('Crear Tarea', () => {
         cy.get('.create-btn').click()
         cy.get('.create-task-btn').eq(2).click()
 
-        cy.get('input[placeholder="Add a title"]').type('Pendientes 3')
-        cy.get('textarea[placeholder="Add notes"]').type('Nota 3')
+        cy.get('.task-modal-header input').eq(0).type('Pendientes 3')
+        cy.get('.task-modal-header textarea').type('Nota 3')
         cy.contains('Crear').first().click()
 
         cy.get('.todo').contains('Pendientes 3').should('be.visible')
@@ -45,8 +45,8 @@ describe('Crear Tarea', () => {
         cy.get('.create-btn').click()
         cy.get('.create-task-btn').eq(3).click()
 
-        cy.get('input[placeholder="Add a title"]').type('Recompensa 4')
-        cy.get('textarea[placeholder="Add notes"]').type('Nota 4')
+        cy.get('.task-modal-header input').eq(0).type('Recompensa 4')
+        cy.get('.task-modal-header textarea').type('Nota 4')
         cy.contains('Crear').first().click()
 
         cy.get('.reward').contains('Recompensa 4').should('be.visible')
