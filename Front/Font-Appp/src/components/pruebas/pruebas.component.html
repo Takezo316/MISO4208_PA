@@ -1,0 +1,63 @@
+<app-toolbar [componentToolbar]="'dashboard'" (onAddTowerClick)="onAddTowerClick($event)"></app-toolbar>
+<mat-tab-group [(selectedIndex)]="selectedTabIndex">
+    <mat-tab label="">
+        <div style="height:800px" *ngIf="selectedTabIndex == 0">
+            <div class="tower-grid">
+
+                <div style="background-color: white"> 
+                
+                    <h1>End to End</h1>
+
+                </div>
+
+
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Lanzar pruebas">
+        <div style="height:800px" *ngIf="selectedTabIndex == 1">
+            <div class="tower-grid">
+
+
+                <div  style="background-color: white"> 
+                    <br>
+                    <br>
+                <div  style="margin: 0% 0% 0% 15%"> 
+
+                    <h2>End to End</h2>
+                    <div class="example-container">
+                        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+                        
+                          
+                          <mat-form-field appearance="fill"
+                              [hideRequiredMarker]="hideRequiredControl.value"
+                              [floatLabel]="floatLabelControl.value"
+                              >
+                            <mat-select required formControlName="e2eprueba">
+                              <mat-option>-- None --</mat-option>
+                              <mat-option value="users">Usuarios</mat-option>
+                              <mat-option value="task">Tareas</mat-option>
+                            </mat-select>
+                            <mat-label><mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i></mat-label>
+                          </mat-form-field>
+                          <button type="submit" mat-stroked-button >lanzar e2e Test</button>
+                        </form>
+                      </div>
+                </div>
+
+                </div>
+
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="--">
+        <div style="height:800px" *ngIf="selectedTabIndex == 2">
+            <div class="tower-grid">
+
+                <barStack></barStack>
+
+
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
