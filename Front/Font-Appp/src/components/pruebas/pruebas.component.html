@@ -14,7 +14,9 @@
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Lanzar pruebas">
+
+
+    <mat-tab label="Mutation Test">
         <div style="height:800px" *ngIf="selectedTabIndex == 1">
             <div class="tower-grid">
 
@@ -24,7 +26,7 @@
                     <br>
                     <div style="margin: 0% 0% 0% 15%">
 
-                        <h2>End to End</h2>
+                        <h2>MutAPK</h2>
                         <div class="example-container">
                             <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
 
@@ -33,16 +35,142 @@
                                     [floatLabel]="floatLabelControl.value">
                                     <mat-select required formControlName="e2eprueba">
                                         <mat-option>-- None --</mat-option>
-                                        <mat-option value="users">Usuarios</mat-option>
-                                        <mat-option value="task">Tareas</mat-option>
+                                        <mat-option value="appName">com.habitrpg.android.habitica</mat-option>
                                     </mat-select>
                                     <mat-label>
-                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                        <mat-icon>book</mat-icon> <b> Nombre de la App </b> <i> Seleccione</i>
                                     </mat-label>
                                 </mat-form-field>
-                                <button type="submit" mat-stroked-button>lanzar e2e Test</button>
+
+
+                                <h3>Ejecución multihilo</h3>
+                                <section class="example-section">
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">Usar multithread 
+                                    </mat-checkbox>
+                                </section>
+                                <h3>Código Muerto</h3>
+                                <section class="example-section">
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">Ignorar código muerto 
+                                    </mat-checkbox>
+                                </section>
+                                <!-- <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="amountMutants">amountMutants</mat-option>
+                                        <mat-option value="perOperator">perOperator</mat-option>
+                                        <mat-option value="confidenceLevel">confidenceLevel</mat-option>
+                                        <mat-option value="marginError">marginError</mat-option>
+                                        <mat-option value="all">all</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Estrategia </b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field> -->
+
+                                <h3>Seleccione Estrategia de pruebas</h3>
+                                <section class="example-section">
+                                    <span class="example-list-section">
+                                        <mat-checkbox class="example-margin" [checked]="allComplete"
+                                            [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                                            {{task.name}}
+                                        </mat-checkbox>
+                                    </span>
+                                    <span class="example-list-section">
+                                        <ul>
+                                            <li *ngFor="let subtask of task.subtasks">
+                                                <mat-checkbox [(ngModel)]="subtask.completed"
+                                                    [ngModelOptions]="{standalone: true}" [color]="subtask.color"
+                                                    (ngModelChange)="updateAllComplete()">
+                                                    {{subtask.name}}
+                                                </mat-checkbox>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </section>
+
+                                <h3>Seleccione Operadores</h3>
+                                <section class="example-section">
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">ActivityNotDefined
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        DifferentActivityIntentDefinition</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidActivityName
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        InvalidKeyIntentPutExtra</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidLabel
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullIntent
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        NullValueIntentPutExtra</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">WrongMainActivity
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        MissingPermissionManifest</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">WrongStringResource
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">SDKVersion
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyBackEndService
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LongConnectionTimeOut
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        BluetoothAdapterAlwaysEnabled</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullBluetoothAdapter
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidURI
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullGPSLocation
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidDate
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        NullBackEndServiceReturn</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullMethodCallArgument
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">ClosingNullCursor
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        InvalidIndexQueryParameter</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidSQLQuery
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        ViewComponentNotVisible</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
+                                        FindViewByIdReturnsNull</mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidColor
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidViewFocus
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidIDFindView
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidFilePath
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullInputStream
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">OOMLargeImage
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyGUIListener
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullOutputStream
+                                    </mat-checkbox>
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyGUICreation
+                                    </mat-checkbox>
+                                </section>
+
+
+
+
+
+                                <button type="submit" mat-stroked-button>Generar Mutantes</button>
                             </form>
                         </div>
+
+
+
                     </div>
 
                 </div>
@@ -126,7 +254,7 @@
                                         <mat-option value="diarias">Tareas diarias</mat-option>
                                         <mat-option value="pendientes">Tareas pendientes</mat-option>
                                         <mat-option value="recompensas">Recompensas</mat-option>
-                                        
+
                                     </mat-select>
                                     <mat-label>
                                         <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
@@ -139,6 +267,43 @@
                 </div>
 
 
+
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Lanzar pruebas">
+        <div style="height:800px" *ngIf="selectedTabIndex == 4">
+            <div class="tower-grid">
+
+
+                <div style="background-color: white">
+                    <br>
+                    <br>
+                    <div style="margin: 0% 0% 0% 15%">
+
+                        <h2>End to End</h2>
+                        <div class="example-container">
+                            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="users">Usuarios</mat-option>
+                                        <mat-option value="task">Tareas</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <button type="submit" mat-stroked-button>lanzar e2e Test</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
         </div>
