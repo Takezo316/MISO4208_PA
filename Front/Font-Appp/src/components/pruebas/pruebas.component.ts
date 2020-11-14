@@ -3,8 +3,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BaseHttpService } from "../../services/BaseHttpService";
 import { AppConfig } from '../../constants/app-config';
 import { Router } from '@angular/router';
-import {ThemePalette} from '@angular/material/core';
-import Swal from 'sweetalert2'
+import { ThemePalette } from '@angular/material/core';
+import swal from 'sweetalert2';
 
 export interface Task {
   name: string;
@@ -53,7 +53,7 @@ export class PruebasComponent implements OnInit {
   onSubmitD(post) {
 
     //alert
-
+    swal.fire('Hello world!')
 
     // Swal.fire('la prueba se realizo exitosamente','sfdsf','success')
 
@@ -75,8 +75,8 @@ export class PruebasComponent implements OnInit {
 
   onSubmit(post) {
 
-
-
+    //alert
+    swal.fire('OK', 'Se inicio la generación de los Mutantes!', 'success')
 
     // this.router.navigateByUrl('//dashboard', { state: this.state });
     console.log("post", post);
@@ -107,10 +107,10 @@ export class PruebasComponent implements OnInit {
     completed: false,
     color: 'primary',
     subtasks: [
-      {name: 'amountMutants', completed: false, color: 'primary'},
-      {name: 'perOperator', completed: false, color: 'primary'},
-      {name: 'confidenceLevel', completed: false, color: 'primary'},
-      {name: 'marginError', completed: false, color: 'primary'}
+      { name: 'amountMutants', completed: false, color: 'primary' },
+      { name: 'perOperator', completed: false, color: 'primary' },
+      { name: 'confidenceLevel', completed: false, color: 'primary' },
+      { name: 'marginError', completed: false, color: 'primary' }
 
     ]
   };

@@ -26,7 +26,7 @@
                     <br>
                     <div style="margin: 0% 0% 0% 15%">
 
-                        <h2>MutAPK</h2>
+                        <h1>MutAPK</h1>
                         <div class="example-container">
                             <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
 
@@ -42,6 +42,80 @@
                                     </mat-label>
                                 </mat-form-field>
 
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="appName">3.0.1.1</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+
+                                <h2>Parametros Generación Mutantes</h2>
+                                <br>
+                                <h3>Cantidad de mutantes</h3>
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="5">5</mat-option>
+                                        <mat-option value="10">10</mat-option>
+                                        <mat-option value="15">15</mat-option>
+                                        <mat-option value="20">20</mat-option>
+                                        <mat-option value="25">25</mat-option>
+                                        <mat-option value="30">30</mat-option>
+                                        <mat-option value="35">35</mat-option>
+                                        <mat-option value="40">40</mat-option>
+                                        <mat-option value="45">45</mat-option>
+                                        <mat-option value="50">50</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <h3>Nivel de Confianza</h3>
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="5">5</mat-option>
+                                        <mat-option value="10">10</mat-option>
+                                        <mat-option value="15">15</mat-option>
+                                        <mat-option value="20">20</mat-option>
+                                        <mat-option value="25">25</mat-option>
+                                        <mat-option value="30">30</mat-option>
+                                        <mat-option value="35">35</mat-option>
+                                        <mat-option value="40">40</mat-option>
+                                        <mat-option value="45">45</mat-option>
+                                        <mat-option value="50">50</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <h3>Margen de Error</h3>
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="e2eprueba">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="5">5</mat-option>
+                                        <mat-option value="10">10</mat-option>
+                                        <mat-option value="15">15</mat-option>
+                                        <mat-option value="20">20</mat-option>
+                                        <mat-option value="25">25</mat-option>
+                                        <mat-option value="30">30</mat-option>
+                                        <mat-option value="35">35</mat-option>
+                                        <mat-option value="40">40</mat-option>
+                                        <mat-option value="45">45</mat-option>
+                                        <mat-option value="50">50</mat-option>
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
 
                                 <h3>Ejecución multihilo</h3>
                                 <section class="example-section">
