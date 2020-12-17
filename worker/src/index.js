@@ -3,7 +3,7 @@ const app = express();
 const port = 8080;
 
 const cors = require('cors')
-
+const schedule = require('node-schedule')
 const path = require('path')
 
 const e2e_router = require('./e2e/e2e_router')
@@ -11,7 +11,7 @@ const random_router = require('./random/random_router')
 const vrt_router = require('./vrt/vrt_router')
 const datagen_router = require('./datagen/datagen_router')
 
-const sqs = require('./settings/sqs_config')
+const processQueueMessage = require('./util/queue_messages')
 
 app.use(cors())
 
@@ -30,46 +30,9 @@ app.get("/healthcheck", (req, res) => {
     res.sendStatus(200)
 })
 
-app.get("/getmessage", (req, res) => {
-
-    let queueURL = "https://sqs.us-east-1.amazonaws.com/890135700773/automaticascola"
-
-    var params = {
-        AttributeNames: [
-            "SentTimestamp"
-        ],
-        MaxNumberOfMessages: 10,
-        MessageAttributeNames: [
-            "All"
-        ],
-        QueueUrl: queueURL,
-        VisibilityTimeout: 20,
-        WaitTimeSeconds: 0
-    };
-
-    sqs.receiveMessage(params, function(err, data) {
-        if (err) {
-            console.log("Receive Error", err)
-            return res.sendStatus(500)
-        } else if (data.Messages) {
-            console.log(data)
-            console.log('___________________________________________________')
-            console.log(data.Messages[0].Body)
-            let deleteParams = {
-                QueueUrl: queueURL,
-                ReceiptHandle: data.Messages[0].ReceiptHandle
-            }
-            sqs.deleteMessage(deleteParams, function(err, data) {
-                if (err) {
-                    console.log("Delete Error", err)
-                    return res.sendStatus(500)
-                } else {
-                    console.log("Message Deleted", data)
-                    return res.send(data).status(200)
-                }
-            })
-        }
-    })
+schedule.scheduleJob('*/30 * * * * *', function() {
+    console.log("Looking for messages")
+    processQueueMessage()
 })
 
 app.listen(port, () => {
