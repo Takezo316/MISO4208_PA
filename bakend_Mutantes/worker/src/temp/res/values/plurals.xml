@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="report_day">
+        <item quantity="other">Days</item>
+        <item quantity="one">Day</item>
+    </plurals>
+    <plurals name="report_month">
+        <item quantity="other">Months</item>
+        <item quantity="one">Month</item>
+    </plurals>
+    <plurals name="report_year">
+        <item quantity="other">Years</item>
+        <item quantity="one">Year</item>
+    </plurals>
+</resources>

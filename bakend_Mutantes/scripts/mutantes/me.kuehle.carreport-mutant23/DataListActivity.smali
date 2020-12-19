@@ -103,9 +103,9 @@
     .line 188
     new-instance v0, Landroid/content/Intent;
 
-    const-class v1, Lme/kuehle/carreport/com/dropbox/client2/android/AuthActivity;
+    const-class v1, Lme/kuehle/carreport/gui/DataDetailActivity;
 
-    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const/4 v0, 0x0
 
     .line 189
     .local v0, "detailIntent":Landroid/content/Intent;

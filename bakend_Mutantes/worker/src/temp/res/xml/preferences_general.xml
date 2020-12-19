@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_title_category_defaults">
+        <ListPreference android:title="@string/pref_title_default_report" android:key="default_report" android:defaultValue="0" />
+        <ListPreference android:title="@string/pref_title_default_car" android:key="default_car" android:defaultValue="1" />
+        <CheckBoxPreference android:title="@string/pref_title_default_show_car_menu" android:key="default_show_car_menu" android:summary="@string/pref_summary_default_show_car_menu" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_title_category_appearance">
+        <CheckBoxPreference android:title="@string/pref_title_appearance_color_sections" android:key="appearance_color_sections" android:summary="@string/pref_summary_appearance_color_sections" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_title_appearance_show_legend" android:key="appearance_show_legend" android:summary="@string/pref_summary_appearance_show_legend" android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_title_category_units">
+        <EditTextPreference android:title="@string/pref_title_unit_currency" android:key="unit_currency" android:defaultValue="EUR" />
+        <EditTextPreference android:title="@string/pref_title_unit_volume" android:key="unit_volume" android:defaultValue="l" />
+        <EditTextPreference android:title="@string/pref_title_unit_distance" android:key="unit_distance" android:defaultValue="km" />
+    </PreferenceCategory>
+</PreferenceScreen>

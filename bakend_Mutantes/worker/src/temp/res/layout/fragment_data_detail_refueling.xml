@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/edit_title_refueling" style="@style/edit_title" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="16.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/edt_date" android:focusable="false" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_weight="0.6" android:inputType="date" style="@android:style/Widget.Holo.Spinner" />
+                <EditText android:id="@id/edt_time" android:focusable="false" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_weight="0.4" android:inputType="time" style="@android:style/Widget.Holo.Spinner" />
+            </LinearLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/edt_mileage" android:layout_width="fill_parent" android:layout_height="48.0dip" android:hint="@string/hint_mileage" android:inputType="number" />
+                <TextView android:layout_gravity="center|right" android:id="@id/txt_unit_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" />
+            </FrameLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <FrameLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <EditText android:id="@id/edt_volume" android:layout_width="fill_parent" android:layout_height="48.0dip" android:hint="@string/hint_volume" android:inputType="numberDecimal" />
+                    <TextView android:layout_gravity="center|right" android:id="@id/txt_unit_volume" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" />
+                </FrameLayout>
+                <Spinner android:id="@id/spn_fueltype" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_weight="0.5" />
+            </LinearLayout>
+            <CheckBox android:id="@id/chk_partial" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/label_partial" />
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/edt_price" android:layout_width="fill_parent" android:layout_height="48.0dip" android:hint="@string/hint_price" android:inputType="numberDecimal" />
+                <TextView android:layout_gravity="center|right" android:id="@id/txt_unit_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" />
+            </FrameLayout>
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/section_note" style="@style/section_header" />
+            <EditText android:id="@id/edt_note" android:layout_width="fill_parent" android:layout_height="48.0dip" android:hint="@string/hint_note_optional" android:inputType="textMultiLine" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/section_car" style="@style/section_header" />
+            <Spinner android:id="@id/spn_car" android:layout_width="fill_parent" android:layout_height="48.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

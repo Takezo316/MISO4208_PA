@@ -532,7 +532,7 @@
 
     const/4 v5, 0x0
 
-    const-string v3, "9f03678bfc004c6c9ec3272ec564c998"
+    const-string v3, "f4baded4dcb64304953723023d1978f2"
 
     invoke-virtual {v2, v3, v5}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Spinner android:entries="@array/exportcsv_singlemultiplefile" android:id="@id/spn_single_multiple_file" android:layout_width="fill_parent" android:layout_height="48.0dip" />
+    <CheckBox android:id="@id/chk_overwrite" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/label_overwrite" />
+</LinearLayout>

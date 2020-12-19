@@ -121,7 +121,9 @@
     .line 191
     const-string v1, "car_id"
 
-    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    new-array p2, p2, [Landroid/os/Parcelable;
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 192
     const-string v1, "id"
@@ -211,39 +213,11 @@
     return-void
 .end method
 
-.method private delay()V
-    .locals 2
-
-    .line 332
-    const-wide/16 v0, 0x2710
-
-    :try_start_0
-    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 335
-    goto :goto_0
-
-    .line 333
-    :catch_0
-    move-exception v0
-
-    .line 334
-    .local v0, "e":Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
-
-    .line 336
-    .end local v0    # "e":Ljava/lang/InterruptedException;
-    :goto_0
-    return-void
-.end method
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Lme/kuehle/carreport/gui/DataListActivity;->delay()V
     const/4 v3, 0x1
 
     .line 91

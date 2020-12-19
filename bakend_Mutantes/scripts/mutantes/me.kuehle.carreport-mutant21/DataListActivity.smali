@@ -62,7 +62,9 @@
 
     .prologue
     .line 181
-    const v1, 0x7f0c0002
+
+    const v1, 0xe5047300
+
 
     invoke-virtual {p0, v1}, Lme/kuehle/carreport/gui/DataListActivity;->findViewById(I)Landroid/view/View;
 
@@ -253,9 +255,9 @@
     .line 99
     const/high16 v1, 0x7f0c0000
 
+    invoke-virtual {p0, v1}, Lme/kuehle/carreport/gui/DataListActivity;->findViewById(I)Landroid/view/View;
 
-    const/4 v1, 0x0
-
+    move-result-object v1
 
     if-eqz v1, :cond_0
 
