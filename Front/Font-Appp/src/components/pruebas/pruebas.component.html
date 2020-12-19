@@ -33,9 +33,9 @@
 
                                 <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
                                     [floatLabel]="floatLabelControl.value">
-                                    <mat-select required formControlName="e2eprueba">
+                                    <mat-select required formControlName="appName">
                                         <mat-option>-- None --</mat-option>
-                                        <mat-option value="appName">com.habitrpg.android.habitica</mat-option>
+                                        <mat-option value="me.kuehle.carreport">me.kuehle.carreport</mat-option>
                                     </mat-select>
                                     <mat-label>
                                         <mat-icon>book</mat-icon> <b> Nombre de la App </b> <i> Seleccione</i>
@@ -45,9 +45,10 @@
 
                                 <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
                                     [floatLabel]="floatLabelControl.value">
-                                    <mat-select required formControlName="e2eprueba">
+                                    <mat-select required formControlName="apkPath">
                                         <mat-option>-- None --</mat-option>
-                                        <mat-option value="appName">3.0.1.1</mat-option>
+                                        <mat-option value="./apk/me.kuehle.carreport-21-appchive.net.apk">3.25.0
+                                        </mat-option>
                                     </mat-select>
                                     <mat-label>
                                         <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
@@ -59,7 +60,7 @@
                                 <h3>Cantidad de mutantes</h3>
                                 <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
                                     [floatLabel]="floatLabelControl.value">
-                                    <mat-select required formControlName="e2eprueba">
+                                    <mat-select required formControlName="amountMutants">
                                         <mat-option>-- None --</mat-option>
                                         <mat-option value="5">5</mat-option>
                                         <mat-option value="10">10</mat-option>
@@ -79,7 +80,7 @@
                                 <h3>Nivel de Confianza</h3>
                                 <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
                                     [floatLabel]="floatLabelControl.value">
-                                    <mat-select required formControlName="e2eprueba">
+                                    <mat-select required formControlName="confidenceLevel">
                                         <mat-option>-- None --</mat-option>
                                         <mat-option value="5">5</mat-option>
                                         <mat-option value="10">10</mat-option>
@@ -91,6 +92,15 @@
                                         <mat-option value="40">40</mat-option>
                                         <mat-option value="45">45</mat-option>
                                         <mat-option value="50">50</mat-option>
+                                        <mat-option value="55">55</mat-option>
+                                        <mat-option value="60">60</mat-option>
+                                        <mat-option value="70">70</mat-option>
+                                        <mat-option value="75">75</mat-option>
+                                        <mat-option value="80">80</mat-option>
+                                        <mat-option value="85">85</mat-option>
+                                        <mat-option value="90">90</mat-option>
+                                        <mat-option value="95">95</mat-option>
+                                        <mat-option value="100">100</mat-option>
                                     </mat-select>
                                     <mat-label>
                                         <mat-icon>book</mat-icon> <b> Versión </b> <i> Seleccione</i>
@@ -99,7 +109,7 @@
                                 <h3>Margen de Error</h3>
                                 <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
                                     [floatLabel]="floatLabelControl.value">
-                                    <mat-select required formControlName="e2eprueba">
+                                    <mat-select required formControlName="marginError">
                                         <mat-option>-- None --</mat-option>
                                         <mat-option value="5">5</mat-option>
                                         <mat-option value="10">10</mat-option>
@@ -119,12 +129,14 @@
 
                                 <h3>Ejecución multihilo</h3>
                                 <section class="example-section">
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">Usar multithread 
+                                    <mat-checkbox formControlName="multithreadExec" style="margin-left: 3%;"
+                                        class="example-margin">Usar multithread
                                     </mat-checkbox>
                                 </section>
                                 <h3>Código Muerto</h3>
                                 <section class="example-section">
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">Ignorar código muerto 
+                                    <mat-checkbox formControlName="ignoreDeadCode" style="margin-left: 3%;"
+                                        class="example-margin">Ignorar código muerto
                                     </mat-checkbox>
                                 </section>
                                 <!-- <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
@@ -153,7 +165,7 @@
                                     <span class="example-list-section">
                                         <ul>
                                             <li *ngFor="let subtask of task.subtasks">
-                                                <mat-checkbox [(ngModel)]="subtask.completed"
+                                                <mat-checkbox [(ngModel)]="subtask.state"
                                                     [ngModelOptions]="{standalone: true}" [color]="subtask.color"
                                                     (ngModelChange)="updateAllComplete()">
                                                     {{subtask.name}}
@@ -164,79 +176,15 @@
                                 </section>
 
                                 <h3>Seleccione Operadores</h3>
-                                <section class="example-section">
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">ActivityNotDefined
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        DifferentActivityIntentDefinition</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidActivityName
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        InvalidKeyIntentPutExtra</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidLabel
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullIntent
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        NullValueIntentPutExtra</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">WrongMainActivity
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        MissingPermissionManifest</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">WrongStringResource
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">SDKVersion
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyBackEndService
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LongConnectionTimeOut
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        BluetoothAdapterAlwaysEnabled</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullBluetoothAdapter
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidURI
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullGPSLocation
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidDate
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        NullBackEndServiceReturn</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullMethodCallArgument
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">ClosingNullCursor
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        InvalidIndexQueryParameter</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidSQLQuery
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        ViewComponentNotVisible</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">
-                                        FindViewByIdReturnsNull</mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidColor
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidViewFocus
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidIDFindView
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">InvalidFilePath
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullInputStream
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">OOMLargeImage
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyGUIListener
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">NullOutputStream
-                                    </mat-checkbox>
-                                    <mat-checkbox style="margin-left: 3%;" class="example-margin">LengthyGUICreation
+
+                                <section class="example-section" *ngFor="let subtask of operadores.subtasks">
+
+                                    <mat-checkbox style="margin-left: 3%;" class="example-margin"
+                                        [(ngModel)]="subtask.state" [ngModelOptions]="{standalone: true}"
+                                        [color]="subtask.color" (ngModelChange)="updateAllComplete()">
+                                        {{subtask.name}}
                                     </mat-checkbox>
                                 </section>
-
-
-
 
 
                                 <button type="submit" mat-stroked-button>Generar Mutantes</button>
@@ -263,8 +211,48 @@
         </div>
     </mat-tab>
 
-    <mat-tab label="VRT">
+    <mat-tab label="BDD">
         <div style="height:800px" *ngIf="selectedTabIndex == 3">
+            <div class="tower-grid" style="margin: 0% 0% 0% 0%;">
+
+                <div style="background-color: white">
+                    <br>
+                    <br>
+                    <div style="margin: 0% 0% 0% 15%">
+
+                        <h2>BDD</h2>
+                        <div class="example-container">
+                            <form [formGroup]="formGroupDBB" (ngSubmit)="onSubmitBDD(formGroupDBB.value)">
+
+
+                                <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                    [floatLabel]="floatLabelControl.value">
+                                    <mat-select required formControlName="path">
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option  value={{prueba.path}}
+                                            *ngFor="let prueba of listaPruebas">
+                                            {{prueba.name}}
+                                        </mat-option>
+
+
+                                    </mat-select>
+                                    <mat-label>
+                                        <mat-icon>book</mat-icon> <b> Tipo de Prueba</b> <i> Seleccione</i>
+                                    </mat-label>
+                                </mat-form-field>
+                                <button type="submit" mat-stroked-button>lanzar VRT Test</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="VRT">
+        <div style="height:800px" *ngIf="selectedTabIndex == 4">
             <div class="tower-grid" style="margin: 0% 0% 0% 0%;">
 
                 <div style="background-color: white">
@@ -307,7 +295,7 @@
         </div>
     </mat-tab>
     <mat-tab label="DataGen">
-        <div style="height:800px" *ngIf="selectedTabIndex == 4">
+        <div style="height:800px" *ngIf="selectedTabIndex == 5">
             <div class="tower-grid" style="margin: 0% 0% 0% 0%;">
 
                 <div style="background-color: white">
@@ -347,7 +335,7 @@
     </mat-tab>
 
     <mat-tab label="Lanzar pruebas">
-        <div style="height:800px" *ngIf="selectedTabIndex == 4">
+        <div style="height:800px" *ngIf="selectedTabIndex == 6">
             <div class="tower-grid">
 
 

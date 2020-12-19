@@ -1,0 +1,69 @@
+ThreadPool: 16
+Mutant 1: .\mutantes\\me.kuehle.carreport-mutant1\src\\res\values\strings.xml; WrongStringResource in line { 2 }
+	For mutant 1 the value of the string named "app_name" at line 3 has been changed from "Car Report" to "08be20cabdb745d0890a59ef32395939"
+Mutant 2: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant2\src\\smali\me\kuehle\carreport\gui\PreferencesActivity$CarsFragment$CarAdapter.smali; InvalidViewFocus in line { 176 }
+	For mutant 2 focus has been requested for the element found at line 172
+Mutant 3: .\mutantes\\me.kuehle.carreport-mutant3\src\\AndroidManifest.xml; MissingPermissionManifest in line { 1 }
+	For mutant 3 the lines between 2 and 2 have been deleted.
+Mutant 4: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant4\src\\smali\me\kuehle\carreport\gui\DataDetailCarFragment$3.smali; LengthyGUIListener in line { 39 }
+	For mutant 4 a large delay has been injected after GUI Listener Creation at line 39
+Mutant 5: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant5\src\\smali\me\kuehle\carreport\util\backup\Dropbox$2.smali; InvalidFilePath in line { 81 }
+	For mutant 5 the path of File at line 81 has been replaced by e03f90a467184fbdb9deeb51d2a74b1c
+Mutant 6: .\mutantes\\me.kuehle.carreport-mutant6\src\\AndroidManifest.xml; ActivityNotDefined in line { 5 }
+	For mutant 6 the lines between 6 and 11 have been deleted.
+Mutant 7: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant7\src\\smali\me\kuehle\carreport\db\Car.smali; InvalidDate in line { 164 }
+	For mutant 7 Date at line 164 has been updated to 0x8520e20L
+Mutant 8: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant8\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; NullIntent in line { 108 }
+	For mutant 8 intent defined at lines 108 has been defined as null
+Mutant 9: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant9\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; NullValueIntentPutExtra in line { 119 }
+	For mutant 9 extra intent value at line 119 has been set to 'new Parcelable[0]'
+Mutant 10: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant10\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; InvalidKeyIntentPutExtra in line { 117 }
+	For mutant 10 extra key value at line 117 has been set to 55932e6213ed4fc5a937a0f5c2377b5a
+Mutant 11: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant11\src\\smali\me\kuehle\carreport\gui\PreferencesActivity$CarsFragment$CarAdapter.smali; ViewComponentNotVisible in line { 266 }
+	For mutant 11 the visibility of element retrieved at line 172 has been set to INVISIBLE at lines: 268 and 270
+Mutant 12: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant12\src\\smali\me\kuehle\carreport\gui\PreferencesActivity$AboutFragment$LicenseDialogFragment.smali; NullMethodCallArgument in line { 95 }
+	For mutant 12, 2 parameter of method read have been replaced with null
+Mutant 13: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant13\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; InvalidIDFindView in line { 243 }
+	For mutant 13 the id of the element retrieved at line 256 has been set to a random value
+Mutant 14: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant14\src\\smali\me\kuehle\carreport\db\Car.smali; ClosingNullCursor in line { 552 }
+	For mutant 14 Database cursor at line 552 has been set to null before close() call
+Mutant 15: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant15\src\\smali\me\kuehle\carreport\util\backup\Dropbox$2.smali; NullOutputStream in line { 648 }
+	For mutant 15 Output Stream at line 648 has been set to null before calling close() method
+Mutant 16: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant16\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; LengthyGUICreation in line { 214 }
+	For mutant 16 a large delay has been injected after GUI Creation at line 214
+Mutant 17: .\mutantes\\me.kuehle.carreport-mutant17\src\\AndroidManifest.xml; InvalidLabel in line { 5 }
+	For mutant 17 activity label at line 5 has been change from "@string/app_name" to "8691370642c1427ca31413b39f1310b9"
+Mutant 18: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant18\src\\smali\me\kuehle\carreport\gui\PreferencesActivity$AboutFragment$LicenseDialogFragment.smali; NullInputStream in line { 98 }
+	For mutant 18 Input Stream at line 98 has been set to null before calling close() method
+Mutant 19: .\mutantes\\me.kuehle.carreport-mutant19\src\\AndroidManifest.xml; InvalidActivityPATH in line { 5 }
+	For mutant 19 activity name at line 5 has been change from ".gui.ReportActivity" to ".gui.ReportActiity"
+Mutant 20: .\mutantes\\me.kuehle.carreport-mutant20\src\\AndroidManifest.xml; WrongMainActivity in line { 6 }
+	For mutant 20 activity ".gui.ReportActivity" at line 6 has been replaced as main activity by ".gui.DataListActivity" at line 13
+Mutant 21: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant21\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; FindViewByIdReturnsNull in lines { 256, 258 }
+	For mutant 21 the element retrieved at line 256 has been set to null
+Mutant 22: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant22\src\\smali\me\kuehle\carreport\db\Car.smali; InvalidIndexQueryParameter in line { 535 }
+	For mutant 22 params list send with SQL command have been replace with an empty String list
+Mutant 23: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant23\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; DifferentActivityIntentDefinition in line { 106 }
+	For mutant 23 component name at line 106 has been change from "Lme/kuehle/carreport/gui/DataDetailActivity;" to "Lme/kuehle/carreport/com/dropbox/client2/android/AuthActivity;"
+Mutant 24: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\scripts\.\mutantes\\me.kuehle.carreport-mutant24\src\\smali\me\kuehle\carreport\db\Car.smali; InvalidSQLQuery in line { 535 }
+	For mutant 24 SQL command have been replace with 9f03678bfc004c6c9ec3272ec564c998
+Mutant 25: .\mutantes\\me.kuehle.carreport-mutant25\src\\res\values\strings.xml; WrongStringResource in line { 3 }
+	For mutant 25 the value of the string named "app_description" at line 4 has been changed from "Enter the costs of your car and receive nice reports and statistics." to "bb38e4d723cf48a3a726cb9e98cb8e23"
+Mutant 26: .\mutantes\\me.kuehle.carreport-mutant26\src\\res\values\strings.xml; WrongStringResource in line { 4 }
+	For mutant 26 the value of the string named "about_author" at line 5 has been changed from "© Jan Kühle" to "cf742a2b112548548d039c201fa59817"
+Mutant 27: .\mutantes\\me.kuehle.carreport-mutant27\src\\res\values\strings.xml; WrongStringResource in line { 5 }
+	For mutant 27 the value of the string named "about_version" at line 6 has been changed from "Version: %s" to "7fd9a0ab32bf4d3fa13b07b3024fcab0"
+Mutant 28: .\mutantes\\me.kuehle.carreport-mutant28\src\\res\values\strings.xml; WrongStringResource in line { 6 }
+	For mutant 28 the value of the string named "about_licenses" at line 7 has been changed from "Licenses" to "7f81ec1749564985b2a86c61574ee2ed"
+Mutant 29: .\mutantes\\me.kuehle.carreport-mutant29\src\\res\values\strings.xml; WrongStringResource in line { 7 }
+	For mutant 29 the value of the string named "hint_mileage" at line 8 has been changed from "Mileage" to "2c17037c1104405fad3697dfbd4bbb10"
+Mutant 30: .\mutantes\\me.kuehle.carreport-mutant30\src\\res\values\strings.xml; WrongStringResource in line { 8 }
+	For mutant 30 the value of the string named "hint_mileage_optional" at line 9 has been changed from "Mileage (optional)" to "08f1fb4b0e6e4b7b89be6657199407ac"
+Mutant 31: .\mutantes\\me.kuehle.carreport-mutant31\src\\res\values\strings.xml; WrongStringResource in line { 9 }
+	For mutant 31 the value of the string named "hint_volume" at line 10 has been changed from "Volume" to "db5a415a1f384d60b22510fd372e0e01"
+Mutant 32: .\mutantes\\me.kuehle.carreport-mutant32\src\\res\values\strings.xml; WrongStringResource in line { 10 }
+	For mutant 32 the value of the string named "hint_price" at line 11 has been changed from "Price" to "85ea73de1c0e4d29a2a52900f3da8f28"
+Mutant 33: .\mutantes\\me.kuehle.carreport-mutant33\src\\res\values\strings.xml; WrongStringResource in line { 11 }
+	For mutant 33 the value of the string named "hint_note_optional" at line 12 has been changed from "Note (optional)" to "4dbdb308b5cc4fbda3cac5de5fff7534"
+Mutant 34: .\mutantes\\me.kuehle.carreport-mutant34\src\\res\values\strings.xml; WrongStringResource in line { 12 }
+	For mutant 34 the value of the string named "hint_title" at line 13 has been changed from "Title" to "072b2fcf345840b5818df121d7d0d528"

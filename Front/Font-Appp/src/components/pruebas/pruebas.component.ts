@@ -6,11 +6,25 @@ import { Router } from '@angular/router';
 import { ThemePalette } from '@angular/material/core';
 import swal from 'sweetalert2';
 
+
 export interface Task {
   name: string;
-  completed: boolean;
+  state: boolean;
   color: ThemePalette;
   subtasks?: Task[];
+}
+export interface Body {
+  body: {
+    parametros: any;
+    estrategia: Task[];
+    operadores: Task[];
+  }
+}
+export interface selPrueba {
+  idtest_feature: number,
+  name: string,
+  path: string,
+  test_type_id: number
 }
 
 @Component({
@@ -22,17 +36,27 @@ export class PruebasComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this._HttpService.getData('https://9siqvn4neb.execute-api.us-east-1.amazonaws.com/pruebas').subscribe(pruebas => {
+      console.log('data', pruebas);
+      this.listaPruebas = pruebas;
+    });
   }
   state = {
     'key': 'value',
   }
-  body = {
-    "body": {
-      "name": "Habitica Web",
-      "description": "Habitica es una aplicación de seguimiento a tareas…app de productividad por medio de juego de roles.",
-      "version": "V3"
-    }
-  }
+
+  listaPruebas: selPrueba[] = [
+    {
+      idtest_feature: 1,
+      name: "Login usuario",
+      path: "http://localhost:8080/e2e/usuarios/login",
+      test_type_id: 1
+    },
+   
+  ]
+
+
+  formGroupDBB: FormGroup;
 
   formGroup: FormGroup;
   hideRequiredControl = new FormControl(false);
@@ -44,9 +68,25 @@ export class PruebasComponent implements OnInit {
     private router: Router
   ) {
     this.formGroup = fb.group({
-      e2eprueba: [null],
+      appName: [null],
+      apkPath: [null],
+      //selectionParameters
+      multithreadExec: true,
+      ignoreDeadCode: true,
+      amountMutants: "35",
+      perOperator: false,
+      confidenceLevel: "85",
+      marginError: "10",
+      baseAPKPath: "./",
       hideRequired: this.hideRequiredControl,
       floatLabel: this.floatLabelControl,
+    });
+
+    
+    this.formGroupDBB = fb.group({
+      path: [null],
+      hideRequired: this.hideRequiredControl,
+      floatLabel: this.floatLabelControl
     });
   }
 
@@ -67,10 +107,15 @@ export class PruebasComponent implements OnInit {
     this._HttpService.postData(AppConfig.URL_Host + '/datagen/' + post.e2eprueba).subscribe(cursos => {
       console.log('data', cursos);
       this.router.navigateByUrl('//dashboard/' + cursos.video);
-      Swal.fire('la prueba se realizo exitosamente', 'ver video: ' + cursos.video, 'success')
+      swal.fire('la prueba se realizo exitosamente', 'ver video: ' + cursos.video, 'success')
 
       // this.cursos = cursos;
     });
+  }
+
+  onSubmitBDD(post){
+    swal.fire('OK', 'Se inicio la ejecución de la prueba!', 'success')
+    console.log(post)
   }
 
   onSubmit(post) {
@@ -80,10 +125,19 @@ export class PruebasComponent implements OnInit {
 
     // this.router.navigateByUrl('//dashboard', { state: this.state });
     console.log("post", post);
-    console.log("body", this.body);
+    console.log("estrategiaP", this.task.subtasks);
+    console.log("operadores", this.operadores.subtasks);
+    let body: Body = {
+      body: {
+        parametros: post,
+        estrategia: this.task.subtasks,
+        operadores: this.operadores.subtasks
+      }
+    };
 
+    console.log(body);
 
-    this._HttpService.add(this.body, 'http://ec2-54-172-85-138.compute-1.amazonaws.com:8080/vrt/avatar').subscribe(cursos => {
+    this._HttpService.add(body, 'https://87yt1rgrp4.execute-api.us-east-1.amazonaws.com/UnderTestingApp').subscribe(cursos => {
       console.log('data', cursos);
       // this.cursos = cursos;
     });
@@ -104,13 +158,56 @@ export class PruebasComponent implements OnInit {
 
   task: Task = {
     name: 'All',
-    completed: false,
+    state: false,
     color: 'primary',
     subtasks: [
-      { name: 'amountMutants', completed: false, color: 'primary' },
-      { name: 'perOperator', completed: false, color: 'primary' },
-      { name: 'confidenceLevel', completed: false, color: 'primary' },
-      { name: 'marginError', completed: false, color: 'primary' }
+      { name: 'amountMutants', state: true, color: 'primary' },
+      { name: 'perOperator', state: false, color: 'primary' },
+      { name: 'confidenceLevel', state: false, color: 'primary' },
+      { name: 'marginError', state: false, color: 'primary' }
+
+    ]
+  };
+
+  operadores: Task = {
+    name: 'All',
+    state: false,
+    color: 'primary',
+    subtasks: [
+      { name: 'ActivityNotDefined', state: true, color: 'primary' },
+      { name: 'DifferentActivityIntentDefinition', state: false, color: 'primary' },
+      { name: 'InvalidActivityPATH', state: false, color: 'primary' },
+      { name: 'InvalidKeyIntentPutExtra', state: false, color: 'primary' },
+      { name: 'InvalidLabel', state: false, color: 'primary' },
+      { name: 'NullIntent', state: false, color: 'primary' },
+      { name: 'NullValueIntentPutExtra', state: false, color: 'primary' },
+      { name: 'WrongMainActivity', state: false, color: 'primary' },
+      { name: 'MissingPermissionManifest', state: false, color: 'primary' },
+      { name: 'WrongStringResource', state: false, color: 'primary' },
+      { name: 'SDKVersion', state: false, color: 'primary' },
+      { name: 'LengthyBackEndService', state: false, color: 'primary' },
+      { name: 'LongConnectionTimeOut', state: false, color: 'primary' },
+      { name: 'BluetoothAdapterAlwaysEnabled', state: false, color: 'primary' },
+      { name: 'NullBluetoothAdapter', state: false, color: 'primary' },
+      { name: 'InvalidURI', state: false, color: 'primary' },
+      { name: 'NullGPSLocation', state: false, color: 'primary' },
+      { name: 'InvalidDate', state: false, color: 'primary' },
+      { name: 'NullBackEndServiceReturn', state: false, color: 'primary' },
+      { name: 'NullMethodCallArgument', state: false, color: 'primary' },
+      { name: 'ClosingNullCursor', state: false, color: 'primary' },
+      { name: 'InvalidIndexQueryParameter', state: false, color: 'primary' },
+      { name: 'InvalidSQLQuery', state: false, color: 'primary' },
+      { name: 'ViewComponentNotVisible', state: false, color: 'primary' },
+      { name: 'FindViewByIdReturnsNull', state: false, color: 'primary' },
+      { name: 'InvalidColor', state: false, color: 'primary' },
+      { name: 'InvalidViewFocus', state: false, color: 'primary' },
+      { name: 'InvalidIDFindView', state: false, color: 'primary' },
+      { name: 'InvalidFilePath', state: false, color: 'primary' },
+      { name: 'NullInputStream', state: false, color: 'primary' },
+      { name: 'OOMLargeImage', state: false, color: 'primary' },
+      { name: 'LengthyGUIListener', state: false, color: 'primary' },
+      { name: 'NullOutputStream', state: false, color: 'primary' },
+      { name: 'LengthyGUICreation', state: false, color: 'primary' },
 
     ]
   };
@@ -118,14 +215,14 @@ export class PruebasComponent implements OnInit {
   allComplete: boolean = false;
 
   updateAllComplete() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.state);
   }
 
   someComplete(): boolean {
     if (this.task.subtasks == null) {
       return false;
     }
-    return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
+    return this.task.subtasks.filter(t => t.state).length > 0 && !this.allComplete;
   }
 
   setAll(completed: boolean) {
@@ -133,7 +230,7 @@ export class PruebasComponent implements OnInit {
     if (this.task.subtasks == null) {
       return;
     }
-    this.task.subtasks.forEach(t => t.completed = completed);
+    this.task.subtasks.forEach(t => t.state = completed);
   }
 
 
