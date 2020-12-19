@@ -115,7 +115,15 @@ export class PruebasComponent implements OnInit {
 
   onSubmitBDD(post){
     swal.fire('OK', 'Se inicio la ejecución de la prueba!', 'success')
-    console.log(post)
+    let body: any = {
+      body: {
+        path: post.path,
+      }
+    };
+
+    this._HttpService.add(body, 'https://9siqvn4neb.execute-api.us-east-1.amazonaws.com/pruebas').subscribe(postSQS => {
+      console.log('data', postSQS);
+    });
   }
 
   onSubmit(post) {
