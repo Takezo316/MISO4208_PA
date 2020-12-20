@@ -2,6 +2,8 @@ const axios = require('axios')
 const sqs = require('../settings/sqs_config')
 const mysql = require('./save_db')
 const shell = require('shelljs');
+const con = require('./save_db');
+const { date } = require('faker');
 
 const queueURL = "https://queue.amazonaws.com/890135700773/QueueMutantes"
 const params = {
@@ -35,15 +37,34 @@ let processQueueMessage = async () => {
 
             // Generar mutantes
             shell.exec('cd c:'); //muestra el dir actual
-            let comando = 'java -jar ../../scripts/target/MutAPK-2.0.0.jar ../../scripts/parameters/parameters.json | tee ';
-            comando.concat("verReporte.md")
+            let comando = 'java -jar ../../scripts/target/MutAPK-2.0.0.jar ../../scripts/parameters/parameters.json | tee Reporte.md';
+
+            console.log("comando: ", comando)
             if (shell.exec(comando).code !== 0) {
                 shell.echo('Error: MutApk fail');
                 shell.exit(1);
             }
-            shell.exec('ls');
-            shell.cp('-R', 'reporteEd.md', '../../../../Reporte/ojo.md');
-            shell.exec('cd ../../../../');
+            // Copiar reporte para publicar
+            let serial = Date.now();
+            let reporte = "Reporte"+ serial +".md"
+            let copiPath = "../../../../Reporte/"+reporte;
+            shell.cp('-R', 'Reporte.md', copiPath);
+
+            //convertir reporte a tabla md 
+            console.log(body.parametros.appName)
+            shell.exec('csv2md < ../../scripts/mutantes/me.kuehle.carreport-times.csv > ../../../../Reporte/tabla'+serial+'.md --csvDelimiter=";"');
+
+            //crear archivo comprimido con mutantes
+            // tar -zcf reportemutantes.tar.gz mutantes/
+            shell.exec('tar -zcf ../../../../Reporte/mutantes'+serial+'.tar.gz ../../scripts/mutantes');
+
+
+            // publicar reportes 
+            shell.exec('git -C ../../../../Reporte/ add .');
+            shell.exec('git -C ../../../../Reporte/ commit -m "add '+reporte+'"');
+            shell.exec('git -C ../../../../Reporte/ push origin master');
+
+        
 
             // let executionIndex = -1
             // mysql.query("INSERT INTO `mydb`.`executions` (`app_ver_id`, `test_feature_id`, `user_id`, `created_at`) VALUES (?, ?, ?, NOW())", ['1', '1', '1'], function(e, r) {
