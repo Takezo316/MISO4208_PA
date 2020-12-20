@@ -1,2 +1,4 @@
 .idea
 /node_modules
+/src/settings/sqs_config.js
+/src/util/save_db.js
