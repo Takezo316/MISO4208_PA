@@ -11,6 +11,8 @@ const random_router = require('./random/random_router')
 const vrt_router = require('./vrt/vrt_router')
 const datagen_router = require('./datagen/datagen_router')
 
+const results_router = require('./dbresults/results_router')
+
 const processQueueMessage = require('./util/queue_messages')
 
 app.use(cors())
@@ -21,6 +23,7 @@ app.use('/e2e', e2e_router)
 app.use('/random', random_router)
 app.use('/vrt', vrt_router)
 app.use('/datagen', datagen_router)
+app.use('/db', results_router)
 
 app.get("/", (req, res) => {
     res.send("Worker for E2E, Random, VRT, DataGen")
@@ -29,6 +32,21 @@ app.get("/", (req, res) => {
 app.get("/healthcheck", (req, res) => {
     res.sendStatus(200)
 })
+
+/*const mysql = require('./util/save_db')
+
+app.get("/test", (req, res) => {
+    mysql.query("SELECT * FROM `mydb`.`test_feature`", function(e, r) {
+        if(e) {
+            console.log(e)
+            res.status(500).send(e)
+        }else {
+            console.log(r[2].path)
+            res.status(200).send(r)
+        }
+
+    })
+})*/
 
 schedule.scheduleJob('*/30 * * * * *', function() {
     console.log("Looking for messages")

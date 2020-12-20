@@ -64,35 +64,36 @@ let processQueueMessage = async () => {
             shell.exec('git -C ../../../../Reporte/ commit -m "add '+reporte+'"');
             shell.exec('git -C ../../../../Reporte/ push origin master');
 
-        
 
-            // let executionIndex = -1
-            // mysql.query("INSERT INTO `mydb`.`executions` (`app_ver_id`, `test_feature_id`, `user_id`, `created_at`) VALUES (?, ?, ?, NOW())", ['1', '1', '1'], function(e, r) {
-            //     if(e)
-            //         console.log("Error to insert execution", e)
-            //     else {
-            //         executionIndex = r.insertId
-            //         mysql.query("INSERT INTO executions_status (`execution_id`, `status`, `result`, `details`, `s3_url`) VALUES (?, 'PENDING', 'null', 'null', 'null')", [r.insertId], function(e1, r1) {
-            //             if(e1)
-            //                 console.log("Error to insert execution_status", e1)
-            //         })
+            // Almacenar Reportes
+            let executionIndex = -1
+            mysql.query("INSERT INTO `mydb`.`executions` (`app_ver_id`, `test_feature_id`, `user_id`, `created_at`) VALUES (?, ?, ?, NOW())", ['1', '1', '1'], function(e, r) {
+                if(e)
+                    console.log("Error to insert execution", e)
+                else {
+                    executionIndex = r.insertId
+                    mysql.query("INSERT INTO executions_status (`execution_id`, `status`, `result`, `details`, `s3_url`) VALUES (?, 'PENDING', 'null', 'null', 'null')", [r.insertId], function(e1, r1) {
+                        if(e1)
+                            console.log("Error to insert execution_status", e1)
+                    })
 
-            //         axios.post(body.path).then(res => {
-            //             //console.log(res.data)
+                    axios.post(body.path).then(res => {
+                        //console.log(res.data)
 
-            //             let sql = "UPDATE `mydb`.`executions_status` SET `status` = 'PASSED', `result` = 'TODO', `details` = 'TODO', `s3_url` = 'TODO' WHERE (`id` = ?)"
-            //             mysql.query(sql, [executionIndex], function(err3, result) {
-            //                 if(err3)
-            //                     console.log("Error to update execution_status")
-            //                 console.log(result)
-            //             })
+                        let sql = "UPDATE `mydb`.`executions_status` SET `status` = 'PASSED', `result` = 'TODO', `details` = 'TODO', `s3_url` = 'TODO' WHERE (`id` = ?)"
+                        mysql.query(sql, [executionIndex], function(err3, result) {
+                            if(err3)
+                                console.log("Error to update execution_status")
+                            console.log(result)
+                        })
 
-            //         }).catch(fatal => {
-            //             //Save error to db
-            //             console.log("Error", fatal)
-            //         })
-            //     }
-            // })
+                    }).catch(fatal => {
+                        //Save error to db
+                        console.log("Error", fatal)
+                    })
+                }
+            })
+
 
             //Delete message
             let deleteParams = {

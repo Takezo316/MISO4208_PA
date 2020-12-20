@@ -42,14 +42,15 @@ let processQueueMessage = async () => {
 
                     axios.post(body.path).then(res => {
                         //console.log(res.data)
-        
-                        let sql = "UPDATE `mydb`.`executions_status` SET `status` = 'PASSED', `result` = 'TODO', `details` = 'TODO', `s3_url` = 'TODO' WHERE (`id` = ?)"
-                        mysql.query(sql, [executionIndex], function(err3, result) {
+                        let status = res.data.error ? "ERROR" : "FINISHED"
+                        let result = res.data.passed ? "PASSED" : "FAILED"
+                        let video = res.data.video
+                        let sql = "UPDATE `mydb`.`executions_status` SET `status` = ?, `result` = ?, `details` = ?, `s3_url` = ? WHERE (`id` = ?)"
+                        mysql.query(sql, [status, result, res.data.duration.toString(), video, executionIndex], function(err3, result) {
                             if(err3)
                                 console.log("Error to update execution_status")
                             console.log(result)
                         })
-        
                     }).catch(fatal => {
                         //Save error to db
                         console.log("Error", fatal)

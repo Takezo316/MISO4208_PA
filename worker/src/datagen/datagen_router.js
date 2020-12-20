@@ -12,9 +12,13 @@ let runTest = (request, response, filename) => {
             spec: filename,
         })
         .then((results) => {
+            let passed = results.totalTests === results.totalPassed ? true : false
+            let duration = results.totalDuration
+            let error = results.runs[0].error != null ? true : false
+
             uploadToS3(results.runs[0].video, bucket, msg => {
                 if(msg !== 'error')
-                    response.status(200).json({video:msg})
+                    response.status(200).json({passed, duration, error, video:msg})
                 else
                     response.status(500).send('Failed to upload video to s3')
             })
