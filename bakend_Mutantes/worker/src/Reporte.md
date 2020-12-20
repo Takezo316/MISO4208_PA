@@ -303,7 +303,7 @@ Lme/kuehle/carreport/gui/DataDetailOtherFragment;
 	validationSuccessfull()V
 	getEditObject(I)Lme/kuehle/carreport/db/AbstractItem;
 
-> It took 35 miliseconds to remove dead code from APK analysis.
+> It took 37 miliseconds to remove dead code from APK analysis.
 ## Amount of Potential Fault Locations per Mutation Operator
 
 Amount Mutants	| Mutation Operator
