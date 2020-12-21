@@ -1,2 +1,10 @@
 Mutant 1: ..\../scripts/mutantes\me.kuehle.carreport-mutant1\src\\AndroidManifest.xml; InvalidLabel in line { 5 }
-	For mutant 1 activity label at line 5 has been change from "@string/app_name" to "e12cf225f48c458a9320aa46440d8197"
+	For mutant 1 activity label at line 5 has been change from "@string/app_name" to "b40d29e9af904b49a1e5ef8239b7dcfb"
+Mutant 2: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\worker\src\..\../scripts/mutantes\me.kuehle.carreport-mutant2\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; DifferentActivityIntentDefinition in line { 106 }
+	For mutant 2 component name at line 106 has been change from "Lme/kuehle/carreport/gui/DataDetailActivity;" to "Lme/kuehle/carreport/gui/PreferencesActivity;"
+Mutant 3: ..\../scripts/mutantes\me.kuehle.carreport-mutant3\src\\AndroidManifest.xml; ActivityNotDefined in line { 5 }
+	For mutant 3 the lines between 6 and 11 have been deleted.
+Mutant 4: C:\Desarrollos\Testing\MISO4208_PA\bakend_Mutantes\worker\src\..\../scripts/mutantes\me.kuehle.carreport-mutant4\src\\smali\me\kuehle\carreport\gui\DataListActivity.smali; InvalidKeyIntentPutExtra in line { 122 }
+	For mutant 4 extra key value at line 122 has been set to bfd056fa89364042bfe475d69c13fc83
+Mutant 5: ..\../scripts/mutantes\me.kuehle.carreport-mutant5\src\\AndroidManifest.xml; InvalidActivityPATH in line { 5 }
+	For mutant 5 activity name at line 5 has been change from ".gui.ReportActivity" to "igui.ReportActiv.ty"
