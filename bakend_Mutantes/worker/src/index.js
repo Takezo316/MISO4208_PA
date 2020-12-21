@@ -33,10 +33,10 @@ app.get("/healthcheck", (req, res) => {
 })
 
 // Schedule para revisar la cola
-// schedule.scheduleJob('*/30 * * * * *', function() {
-//     console.log("Looking for messages")
+schedule.scheduleJob('*/30 * * * * *', function() {
+    console.log("Looking for messages")
     processQueueMessage()
-// })
+})
 
 
 
