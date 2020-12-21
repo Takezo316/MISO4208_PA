@@ -13,12 +13,18 @@ let runTest = (request, response, filename, img1, img2) => {
             spec: "cypress/integration/habitica/vrt/"+filename
         })
         .then((results) => {
+            let passed = results.totalTests === results.totalPassed ? true : false
+            let duration = results.totalDuration
+            let error = results.runs[0].error != null ? true : false
+
             let screenFolder = path.join(results.config.screenshotsFolder, folder)
             let image1 = path.join(screenFolder, img1)
             let image2 = path.join(screenFolder, img2)
 
             compare(image1, image2, data => {
-                response.json(data)
+                if(data.misMatchPercentage < 30.0)
+                    passed = true
+                response.json({passed, duration, error, video: data.diff})
             })
         })
         .catch((err) => {

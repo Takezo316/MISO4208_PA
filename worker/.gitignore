@@ -1,2 +1,4 @@
 .idea
 /node_modules
+/src/settings/s3_config.js
+/src/settings/sqs_config.js

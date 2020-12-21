@@ -21,10 +21,12 @@ let compare = (path1, path2, callback) => {
     let diff = resemble(file1).compareTo(file2).onComplete((data) => {
         let diffImg = path.resolve(__dirname, '../../public/images/diff_' + currentDate.toString() + '.png')
         fs.writeFileSync(diffImg, data.getBuffer())
+        console.log(data)
         callback({
             img1: path.relative('.', img1New),
             img2: path.relative('.', img2New),
-            diff: path.relative('.', diffImg)
+            diff: path.relative('.', diffImg),
+            misMatchPercentage: data.misMatchPercentage
         })
     })
 }
