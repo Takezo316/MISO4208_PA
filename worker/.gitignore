@@ -1,4 +1,4 @@
 .idea
 /node_modules
-worker/src/settings/s3_config.js
-worker/src/settings/sqs_config.js
+/src/settings/s3_config.js
+/src/settings/sqs_config.js
