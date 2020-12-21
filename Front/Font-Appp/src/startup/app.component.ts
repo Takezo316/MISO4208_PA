@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
         // this.routes.push(new AppRouterLink('//graphs', 'Gráficas'));
         this.routes.push(new AppRouterLink('//pruebas', 'Lanzar Pruebas'));
         this.routes.push(new AppRouterLink('//informes', 'Informes Mutantes'));
-        this.routes.push(new AppRouterLink('//informesBDD', 'Informes BDD'));
+        this.routes.push(new AppRouterLink('//informesBDD', 'Informes Pruebas'));
 
 
         

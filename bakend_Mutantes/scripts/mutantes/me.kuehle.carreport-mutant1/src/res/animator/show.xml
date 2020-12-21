@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:ordering="sequentially"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <animator android:interpolator="@android:anim/linear_interpolator" android:duration="@android:integer/config_shortAnimTime" android:valueFrom="0" android:valueTo="48" android:valueType="intType" />
+    <objectAnimator android:interpolator="@android:anim/linear_interpolator" android:duration="@android:integer/config_shortAnimTime" android:valueFrom="0" android:valueTo="1" android:valueType="floatType" android:propertyName="alpha" />
+</set>

@@ -1,3 +1,2 @@
-ThreadPool: 16
-Mutant 1: ..\../scripts/mutantes\\me.kuehle.carreport-mutant1\src\\AndroidManifest.xml; ActivityNotDefined in line { 5 }
-	For mutant 1 the lines between 6 and 11 have been deleted.
+Mutant 1: ..\../scripts/mutantes\me.kuehle.carreport-mutant1\src\\AndroidManifest.xml; InvalidLabel in line { 5 }
+	For mutant 1 activity label at line 5 has been change from "@string/app_name" to "e12cf225f48c458a9320aa46440d8197"
