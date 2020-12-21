@@ -1,0 +1,17 @@
+{
+    "apkPath": "../../scripts/apk/me.kuehle.carreport-21-appchive.net.apk",
+    "appName": "me.kuehle.carreport",
+    "mutantsFolder": "../../scripts/mutantes",
+    "operatorsDir": "../../scripts/parameters/",
+    "multithreadExec": "false",
+    "ignoreDeadCode": "true",
+    "extraPath": "../../scripts/parameters/extra",
+    "selectionStrategy": "amountMutants",
+    "selectionParameters": {
+        "amountMutants": "1",
+        "perOperator": "false",
+        "confidenceLevel": "85",
+        "marginError": "10",
+        "baseAPKPath": "./"
+    }
+}

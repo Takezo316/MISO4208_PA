@@ -8,8 +8,12 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { GraphsComponent } from "../components/graphs/graphs.component";
 import { PruebasComponent } from "../components/pruebas/pruebas.component";
 import { VideoComponent } from "../components/video/video.component";
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
-
+import { ResultadosComponent } from "../components/resultados/resultados.component";
+import { InformesBDDComponent } from "../components/informes-bdd/informes-bdd.component";
 import { BarChartComponent } from "../components/graphs/barchart/barchart";
 import { BarStackComponent } from "../components/graphs/barchart/barStack.component";
 import { ScatterGraphComponent } from "../components/graphs/scatter/scatter.component";
@@ -35,6 +39,8 @@ import { BordereauActionsRenderer } from '../components/base/ag-grid-base/ag-gri
 
 @NgModule({
     declarations: [
+        InformesBDDComponent,
+        ResultadosComponent,
         VideoComponent,
         BarStackComponent,
         PruebasComponent,
@@ -58,17 +64,25 @@ import { BordereauActionsRenderer } from '../components/base/ag-grid-base/ag-gri
     ],
     imports: [
         BrowserModule,
-        FormsModule, 
+        FormsModule,
         ChartsModule,
         HttpClientModule,
         AppRoutingModule,
         AppMaterialModule,
         AppAgGridModule,
         FileUploadModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatTableModule,
+        MatSortModule,
     ],
-    providers: [BaseHttpService, AppSharedService, HttpClientModule],
-    entryComponents: [AgGridCellSelectEditor, AgGridCellSelectRenderer, BordereauActionsRenderer, UploadComponent],
+    providers: [
+        BaseHttpService, AppSharedService, HttpClientModule, ResultadosComponent,
+        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    ],
+    entryComponents: [
+        AgGridCellSelectEditor, AgGridCellSelectRenderer, ResultadosComponent,
+        BordereauActionsRenderer, UploadComponent
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

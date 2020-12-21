@@ -14,11 +14,15 @@ export class AppComponent implements OnInit {
     }
 
     loadRoutes(): void {
-        this.routes.push(new AppRouterLink('//dashboard', 'Dashboard'));
+        // this.routes.push(new AppRouterLink('//dashboard', 'Dashboard'));
         // this.routes.push(new AppRouterLink('//name-matching', 'Ag-Grid Example'));
         // this.routes.push(new AppRouterLink('//bordereau', 'Form Validation Example'));
-        this.routes.push(new AppRouterLink('//graphs', 'Gráficas'));
+        // this.routes.push(new AppRouterLink('//graphs', 'Gráficas'));
         this.routes.push(new AppRouterLink('//pruebas', 'Lanzar Pruebas'));
+        this.routes.push(new AppRouterLink('//informes', 'Informes Mutantes'));
+        this.routes.push(new AppRouterLink('//informesBDD', 'Informes BDD'));
+
+
         
         
     }

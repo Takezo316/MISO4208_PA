@@ -1,0 +1,45 @@
+<div style="padding: 1px;"></div>
+<div style="margin: 1%;">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="secuencia">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Secuencia </th>
+            <td mat-cell *matCellDef="let element"> {{element.secuencia}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="create_at">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Creación </th>
+            <td mat-cell *matCellDef="let element"> {{element.create_at}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="report">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Reporte </th>
+            <td mat-cell *matCellDef="let element"> <a href={{element.report}}>ver Reporte{{element.secuencia}}</a> </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="tabla">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tabla Reporte </th>
+            <td mat-cell *matCellDef="let element"> <a href={{element.tabla}}>ver tabla{{element.secuencia}}</a> </td>
+        </ng-container>
+        
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="mutantes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descargar Mutantes </th>
+            <td mat-cell *matCellDef="let element"> <a href={{element.mutantes}}>Descargar Mutantes {{element.secuencia}}</a> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
